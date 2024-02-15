@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>addform</title>
+</head>
+<body>
+    <h1>아이템 등록</h1>
+    <hr>
+    <form method="post" action="/item/add">
+        name <input type="text" name="name" required><br>
+        price <input type="number" name="price" required><br>
+        <input type="submit" value="등록">
+    </form>
+</body>
+</html>

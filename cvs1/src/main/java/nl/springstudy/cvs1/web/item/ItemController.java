@@ -5,7 +5,9 @@ import nl.springstudy.cvs1.domain.item.ItemService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -26,4 +28,17 @@ public class ItemController {
         return "list";
     }
 
+    @GetMapping("/add")
+    public String addForm   () {
+        return "addform";
+    }
+
+    @PostMapping("/add")
+    public String add(
+            @RequestParam("name") String name,
+            @RequestParam("price") Integer price
+    ) {
+        itemService.addItem(name, price);
+        return "redirect:list";
+    }
 }

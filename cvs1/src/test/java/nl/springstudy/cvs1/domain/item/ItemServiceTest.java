@@ -16,7 +16,7 @@ class ItemServiceTest {
     @Test
     void itemCRUD() {
         // 아이템 등록
-        Item savedItem = itemService.registerItem("BananaMilk", 1700);
+        Item savedItem = itemService.addItem("BananaMilk", 1700);
         Long savedItemId = savedItem.getId();
 
         // 아이템 조회

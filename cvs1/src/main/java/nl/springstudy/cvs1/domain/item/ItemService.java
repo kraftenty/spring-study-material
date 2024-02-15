@@ -10,7 +10,7 @@ public class ItemService {
         this.itemRepository = itemRepository;
     }
 
-    public Item registerItem(String name, Integer price) {
+    public Item addItem(String name, Integer price) {
         return itemRepository.save(new Item(name, price));
     }
 

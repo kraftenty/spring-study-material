@@ -25,10 +25,10 @@ class ItemServiceTest {
         assertThat(findItem.getPrice()).isEqualTo(savedItem.getPrice());
 
         // 아이템 수정
-        Item updatedItem = itemService.updateItem(findItem.getId(), "MelonMilk", 1900);
-        Item findUpdatedItem = itemService.findItemById(updatedItem.getId());
-        assertThat(findUpdatedItem.getName()).isEqualTo(updatedItem.getName());
-        assertThat(findUpdatedItem.getPrice()).isEqualTo(updatedItem.getPrice());
+        itemService.updateItem(findItem.getId(), "MelonMilk", 1900);
+        Item findUpdatedItem = itemService.findItemById(findItem.getId());
+        assertThat(findUpdatedItem.getName()).isEqualTo(findItem.getName());
+        assertThat(findUpdatedItem.getPrice()).isEqualTo(findItem.getPrice());
 
         //아이템 삭제
         itemService.deleteItem(findUpdatedItem.getId());

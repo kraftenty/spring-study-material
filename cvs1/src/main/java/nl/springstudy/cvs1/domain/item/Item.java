@@ -1,5 +1,9 @@
 package nl.springstudy.cvs1.domain.item;
 
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter @Setter
 public class Item {
 
     private Long id;
@@ -15,27 +19,4 @@ public class Item {
         this.price = price;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Integer getPrice() {
-        return price;
-    }
-
-    public void setPrice(Integer price) {
-        this.price = price;
-    }
 }

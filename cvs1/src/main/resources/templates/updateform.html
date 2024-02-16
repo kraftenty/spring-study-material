@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>updateform</title>
+</head>
+<body>
+    <h1>아이템 수정</h1>
+    <hr>
+    <form method="post" th:action="@{'/item/' + ${item.id} + '/update'}">
+        name <input type="text" name="name" th:value="${item.name}" required><br>
+        price <input type="number" name="price" th:value="${item.price}" required><br>
+        <input type="submit" value="등록">
+    </form>
+</body>
+</html>

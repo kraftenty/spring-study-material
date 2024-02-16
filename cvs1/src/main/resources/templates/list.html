@@ -13,11 +13,13 @@
             <th>id</th>
             <th>name</th>
             <th>price</th>
+            <th>상세보기</th>
         </tr>
         <tr th:each="item : ${items}">
             <td th:text="${item.id}"></td>
             <td th:text="${item.name}"></td>
             <td th:text="${item.price}"></td>
+            <td><a th:href="@{'/item/' + ${item.id}}"><button>상세보기</button></a></td>
         </tr>
     </table>
 </body>

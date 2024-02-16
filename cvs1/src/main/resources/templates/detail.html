@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+     <title>detail</title>
+    <style>
+        .detail {
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <h1>아이템 상세보기</h1>
+    <hr>
+
+    <div class="detail" th:text="'id : ' + ${item.id}"></div>
+    <div class="detail" th:text="'name : ' + ${item.name}"></div>
+    <div class="detail" th:text="'price : ' + ${item.price}"></div>
+
+    <a th:href="@{'/item/' + ${item.id} + '/update'}"><button>수정</button></a>
+    <button th:onclick="confirmAndForward('정말 삭제하시겠습니까?','/item/' + [[${item.id}]] + '/delete')">삭제</button>
+    <a href="/item"><button>목록으로</button></a>
+<script>
+    function confirmAndForward(message, forwardUrl) {
+        if (confirm(message)) {
+            window.location.href = forwardUrl;
+        }
+    }
+</script>
+</body>
+</html>

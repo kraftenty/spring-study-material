@@ -23,7 +23,7 @@ public class ItemController {
     public String list(Model model) {
         List<Item> items = itemService.findAllItems();
         model.addAttribute("items", items);
-        return "list";
+        return "item/itemList";
     }
 
     @GetMapping("/add")
@@ -41,14 +41,14 @@ public class ItemController {
     public String detail(@PathVariable("id") Long id, Model model) {
         Item item = itemService.findItemById(id);
         model.addAttribute("item", item);
-        return "detail";
+        return "item/itemDetail";
     }
 
     @GetMapping("/{id}/update")
     public String updateForm(@PathVariable("id") Long id, Model model) {
         Item item = itemService.findItemById(id);
         model.addAttribute("item", item);
-        return "updateform";
+        return "item/updateItemForm";
     }
 
     @PostMapping("/{id}/update")

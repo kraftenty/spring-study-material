@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>loginForm</title>
+</head>
+<body>
+    <h1>로그인</h1>
+    <hr>
+    <form action="" method="post">
+
+        <div th:if="${#fields.hasGlobalErrors()}">
+            <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">
+                전체 오류 메시지
+            </p>
+        </div>
+    </form>
+</body>
+</html>

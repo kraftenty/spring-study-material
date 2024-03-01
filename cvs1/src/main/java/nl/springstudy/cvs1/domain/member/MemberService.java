@@ -12,31 +12,26 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
 
-    public Member join(Member member) {
+    // 회원 가입 메서드
+    public boolean join(Member member) {
         // 이메일 중복 검사
         if (memberRepository.findByEmail(member.getEmail()).isPresent()) {
-            return null;
+            // 중복된 경우
+            return false;
         }
-        return memberRepository.save(member);
+        // 성공한 경우
+        memberRepository.save(member);
+        return true;
     }
 
-    public Member findMemberById(Long id) {
-        return memberRepository.findById(id);
-    }
-
-    public List<Member> findAllMember() {
-        return memberRepository.findAll();
-    }
-
+    // 회원 비밀번호 수정 메서드
     public void updateMemberPassword(Long currentId, Member updateParam) {
         memberRepository.update(currentId, updateParam);
     }
 
+    // 회원 탈퇴 메서드
     public void deleteMember(Long id) {
         memberRepository.delete(id);
     }
 
-    public void clearMembers() {
-        memberRepository.clear();
-    }
 }

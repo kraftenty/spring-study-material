@@ -28,7 +28,7 @@ public class ItemController {
 
     @GetMapping("/add")
     public String addForm() {
-        return "addform";
+        return "itemAddForm";
     }
 
     @PostMapping("/add")
@@ -48,7 +48,7 @@ public class ItemController {
     public String updateForm(@PathVariable("id") Long id, Model model) {
         Item item = itemService.findItemById(id);
         model.addAttribute("item", item);
-        return "item/updateItemForm";
+        return "itemUpdateForm";
     }
 
     @PostMapping("/{id}/update")

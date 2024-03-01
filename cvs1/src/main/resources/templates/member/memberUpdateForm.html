@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>loginForm</title>
+    <title>UpdateMemberForm</title>
 </head>
 <body>
-    <h1>로그인</h1>
+    <h1>비밀번호 변경</h1>
     <hr>
-    <!--LoginController에서 loginForm을 전달받았음. -->
-    <form action="/login" method="post" th:object="${loginForm}">
+    <!--MemberController 에서 memberUpdateForm 을 전달받았음. -->
+    <form action="/member/update" method="post" th:object="${memberUpdateForm}">
 
         <div th:if="${#fields.hasGlobalErrors()}">
             <p th:each="err : ${#fields.globalErrors()}" th:text="${err}">
@@ -16,20 +16,17 @@
             </p>
         </div>
 
-        <!--이메일 입력-->
-        <input type="text" th:field="*{email}">
-        <div th:errors="*{email}">이메일 관련 에러 메시지</div>
-        <br>
 
         <!--비밀번호 입력-->
-        <input type="password" th:field="*{password}">
+        새로운 비밀번호 : <input type="password" th:field="*{password}">
         <div th:errors="*{password}">비밀번호 관련 에러 메시지</div>
         <br>
 
-        <!--로그인 버튼-->
-        <button type="submit">로그인</button>
+        <!--변경 버튼-->
+        <button type="submit">변경</button>
         <!--취소 버튼-->
         <button type="button" onclick="location.href='/'" >취소</button>
     </form>
+
 </body>
 </html>
